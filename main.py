@@ -71,6 +71,7 @@ def main():
         "docker_image": docker_image,
         "node_os": node_os,
         "project_name": project_name,
+        "job_config": job_config,
     }
 
     entrance_queue_item = jenkins.build_job(job_name, **configs)
@@ -110,8 +111,7 @@ def main():
         "pr_head_sha": pr_head_sha,
         "project_name": project_name,
         "node_tag": node_tag,
-        "platform": platform,
-        "job_config": job_config,
+        "platform": platform
     }
 
     queue_item = jenkins.build_job(test_job_name, **parameters)
