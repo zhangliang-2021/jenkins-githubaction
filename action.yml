@@ -1,41 +1,74 @@
-name: "Jenkins-Action"
-description: "Start Jenkins jobs and report back url and status of build"
+name: "Metax-Jenkins-Action"
+description: "Start Metax Jenkins jobs and report back url and status of build"
 author: "metax"
 inputs:
   url:
-    description: "Jenkins URL including http/https protocol"
-    required: true
+    description: "Metax Jenkins URL"
+    default: 'https://cicd.metax-tech.com/'
   job_name:
-    description: "Jenkins job name to build"
+    description: "Jenkins job name to build e.g. github_control"
     required: true
+    default: 'github_control'
   username:
     description: "Jenkins username"
-    required: false
+    required: true
   api_token:
     description: "Jenkins API token"
-    required: false
-  parameters:
-    description: 'Build parameters in JSON format e.g. `{"field1":"value1"}`'
-    required: false
+    required: true
+  # parameters:
+  #   description: 'Build parameters in JSON format e.g. `{"field1":"value1"}`'
+  #   required: false
   cookies:
     description: 'Cookies to include in HTTP requests in JSON format e.g. `{"field1":"value1"}`'
     required: false
   timeout:
-    description: "Timeout in seconds for build to complete"
+    description: "Timeout in seconds for build to complete e.g. 30min"
     required: false
     default: "1800"
   start_timeout:
-    description: "Timeout in seconds for build to start"
+    description: "Timeout in seconds for build to start e.g. 10min"
     required: false
     default: "600"
   interval:
-    description: "How frequently in seconds to query Jenkins for build status"
+    description: "How frequently in seconds to query Jenkins for build status e.g. 10s"
     required: false
-    default: "5"
+    default: "10"
+  project_name:
+    description: "Github project name"
+    required: true
+  pr_num:
+    description: "pull request number, required when running smoke test"
+    required: false
+  pr_head_sha:
+    description: "pull request head sha, required when running smoke test"
+    required: false
+  core_num:
+    description: "Number of cpu e.g. 4,8,16..."
+    required: false
+    default: "4"
+  memory_size: 
+    description: "size of memory"
+    required: false
+    default: "8"
+  storage_size:
+    description: "size of storage disk"
+    required: false
+    default: "50"
+  platform:
+    description: "container or kvm"
+    required: true
+  docker_image:
+    description: "Required when platform is container"
+    required: false
+  os:
+    description: "os of container or kvm e.g ubuntu22"
+    required: false
+    default: "ubuntu22"
+    
   
 outputs:
-  build_url:
-    description: "Jenkins build URL"
+  log_url:
+    description: "Jenkins job log url"
 runs:
   using: "docker"
   image: "Dockerfile"
