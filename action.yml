@@ -15,6 +15,9 @@ inputs:
   api_token:
     description: "Jenkins API token"
     required: true
+  job_config_file:
+    description: 'job config file'
+    required: true
   # parameters:
   #   description: 'Build parameters in JSON format e.g. `{"field1":"value1"}`'
   #   required: false
