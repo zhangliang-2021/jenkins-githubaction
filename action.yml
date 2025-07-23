@@ -49,6 +49,10 @@ inputs:
     description: "Number of cpu e.g. 4,8,16..."
     required: false
     default: "4"
+  gpu_num:
+    description: "Number of metax gpu"
+    required: false
+    default: "1"
   memory_size: 
     description: "size of memory"
     required: false
@@ -58,13 +62,13 @@ inputs:
     required: false
     default: "50"
   platform:
-    description: "container or kvm"
+    description: "k8s or kvm"
     required: true
   docker_image:
-    description: "Required when platform is container"
+    description: "Required when platform is k8s"
     required: false
   os:
-    description: "os of container or kvm e.g ubuntu22"
+    description: "os of k8s container or kvm e.g ubuntu22"
     required: false
     default: "ubuntu22"
     

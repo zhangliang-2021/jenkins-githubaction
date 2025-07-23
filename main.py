@@ -34,6 +34,7 @@ def main():
 
     # node settings
     core_num = os.environ.get("INPUT_CORE_NUM")
+    gpu_num = os.environ.get("INPUT_GPU_NUM")
     memory_size = os.environ.get("INPUT_MEMORY_SIZE")
     storage_size = os.environ.get("INPUT_STORAGE_SIZE")
     platform = os.environ["INPUT_PLATFORM"]
@@ -65,6 +66,7 @@ def main():
 
     configs = {
         "core_num": core_num,
+        "gpu_num": gpu_num,
         "memory_size": memory_size,
         "storage_size": storage_size,
         "platform": platform,
@@ -111,7 +113,6 @@ def main():
         "pr_head_sha": pr_head_sha,
         "project_name": project_name,
         "node_tag": node_tag,
-        "platform": platform
     }
 
     queue_item = jenkins.build_job(test_job_name, **parameters)
