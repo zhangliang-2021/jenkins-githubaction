@@ -38,6 +38,7 @@ inputs:
     default: "10"
   project_name:
     description: "Github project name"
+    default: ${{ github.repository }}
     required: true
   pr_num:
     description: "pull request number, required when running smoke test"
