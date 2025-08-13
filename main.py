@@ -114,7 +114,7 @@ def main():
         "pr_num": pr_num,
         "pr_head_sha": pr_head_sha,
         "project_name": project_name,
-        "project_version": project_revision,
+        "project_revision": project_revision,
         "project_branch": project_branch,
         "node_tag": node_tag,
     }
