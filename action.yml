@@ -77,6 +77,7 @@ inputs:
     required: true
   docker_image:
     description: "Required when platform is k8s"
+    default: ubuntu22-dev:v0.1
     required: false
   os:
     description: "os of k8s container or kvm e.g ubuntu22"
