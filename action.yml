@@ -39,12 +39,22 @@ inputs:
   project_name:
     description: "Github project name"
     default: ${{ github.repository }}
-    required: true
+    required: false
+  project_branch:
+    description: "Github project branch"
+    default: ${{ github.ref_name }}
+    required: false
+  project_revision:
+    description: "Github project branch"
+    default: ${{ github.sha }}
+    required: false
   pr_num:
     description: "pull request number, required when running smoke test"
+    default: ${{ github.event.pull_request.number }}
     required: false
   pr_head_sha:
     description: "pull request head sha, required when running smoke test"
+    default: ${{ github.event.pull_request.head.sha }}
     required: false
   core_num:
     description: "Number of cpu e.g. 4,8,16..."

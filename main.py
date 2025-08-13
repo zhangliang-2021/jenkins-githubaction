@@ -31,6 +31,8 @@ def main():
     pr_num = os.environ.get("INPUT_PR_NUMBER")
     pr_head_sha = os.environ.get("INPUT_PR_HEAD_SHA")
     project_name = os.environ["INPUT_PROJECT_NAME"]
+    project_revision = os.environ["INPUT_PROJECT_REVISION"]
+    project_branch = os.environ["INPUT_PROJECT_BRANCH"]
 
     # node settings
     core_num = os.environ.get("INPUT_CORE_NUM")
@@ -112,6 +114,8 @@ def main():
         "pr_num": pr_num,
         "pr_head_sha": pr_head_sha,
         "project_name": project_name,
+        "project_version": project_revision,
+        "project_branch": project_branch,
         "node_tag": node_tag,
     }
 
