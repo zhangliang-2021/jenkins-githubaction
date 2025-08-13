@@ -46,9 +46,6 @@ def main():
     # test job info
     job_config_file = os.environ["INPUT_JOB_CONFIG_FILE"]
 
-    with open(job_config_file, "r") as f:
-        job_config = f.read()
-
     if cookies:
         try:
             cookies = json.loads(cookies)
@@ -75,7 +72,11 @@ def main():
         "docker_image": docker_image,
         "node_os": node_os,
         "project_name": project_name,
-        "job_config": job_config,
+        "job_config_file": job_config_file,
+        "pr_num": pr_num,
+        "pr_head_sha": pr_head_sha,
+        "project_revision": project_revision,
+        "project_branch": project_branch,
     }
 
     entrance_queue_item = jenkins.build_job(job_name, **configs)
